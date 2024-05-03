@@ -1,19 +1,20 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.1'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '3.3.0-RC1'
+	id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'guru.springframework'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '21'
 
 repositories {
 	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
 }
 
 ext {
-	set('springCloudVersion', "2022.0.0")
+	set('springCloudVersion', "2023.0.1")
 }
 
 dependencies {
