@@ -30,7 +30,9 @@ public class SpringSecConfig {
     @Order(2)
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http){
 
-        http.authorizeExchange(authorizeExchangeSpec -> authorizeExchangeSpec.anyExchange().authenticated())
+        http.authorizeExchange(authorizeExchangeSpec -> authorizeExchangeSpec
+                        .pathMatchers("/oauth2/**", "/oauth2/token").permitAll()
+                        .anyExchange().authenticated())
                 .oauth2ResourceServer(oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec.jwt(Customizer.withDefaults()))
                 .csrf(ServerHttpSecurity.CsrfSpec::disable);
 
