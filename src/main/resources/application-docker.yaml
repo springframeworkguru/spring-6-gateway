@@ -23,3 +23,7 @@ spring:
           uri: http://auth-server:9000
           predicates:
              - Path=/oauth2/**
+          filters:
+            - name: SetRequestHostHeader
+              args:
+                host: auth-server
